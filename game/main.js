@@ -25,10 +25,8 @@ $(document).ready(() => {
   let ctx = $canvas.getContext("2d");
 
   let drawableMap = new DrawableMap(map);
-  drawableMap.drawMap(ctx);
-  drawableMap.drawContent(ctx);
-
-  let game = new Game(GAME_LOOP_INTERVAL);
+  let gameEngine = new GameEngine(drawableMap, ctx);
+  let game = new Game(GAME_LOOP_INTERVAL, gameEngine);
 
   // Starting the game...
   console.log('Starting Project Adventure...');
@@ -42,25 +40,21 @@ $(document).ready(() => {
       case ARROW_DOWN_KEY_CODE: 
         game.addTask(function () { 
           playerObject.move({ y: WALKING_SPEED });
-          drawableMap.drawContent(ctx); 
         });
         break;
       case ARROW_UP_KEY_CODE: 
         game.addTask(function () { 
           playerObject.move({ y: -WALKING_SPEED });
-          drawableMap.drawContent(ctx);
         });
         break;
       case ARROW_LEFT_KEY_CODE: 
         game.addTask(function () { 
           playerObject.move({ x: -WALKING_SPEED });
-          drawableMap.drawContent(ctx);
         });
         break;
       case ARROW_RIGHT_KEY_CODE:
         game.addTask(function () { 
           playerObject.move({ x: WALKING_SPEED });
-          drawableMap.drawContent(ctx);
         });
         break;
     }

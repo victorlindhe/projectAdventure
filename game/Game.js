@@ -1,9 +1,10 @@
 // Class for running the game loop and managing the task queue
 
 class Game {
-  constructor(gameLoopInterval = 200) {
+  constructor(gameLoopInterval = 200, gameEngine) {
     console.log(this);
     this.gameLoopInterval = gameLoopInterval;
+    this.gameEngine = gameEngine;
     
     // The task queue is to handle input from the user and process it in the right order
     this.taskQueue = [];
@@ -17,10 +18,13 @@ class Game {
       let task = this.taskQueue.shift();
       task.call();
     }
+
+    this.gameEngine.tick();
   }
   
   // Starts the loop
   start() {
+    this.gameEngine.setup()
     this.interval = setInterval(this.tick.bind(this), this.gameLoopInterval);
   }
 
