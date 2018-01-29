@@ -18,7 +18,10 @@ $(document).ready(() => {
   let ctx = $canvas.getContext("2d");
 
   let drawableMap = new DrawableMap(map);
-  drawableMap.draw(ctx);
+  drawableMap.drawMap(ctx);
+  drawableMap.drawContent(ctx);
+
+  drawableMap.drawContent(ctx);
 
   let game = new Game(GAME_LOOP_INTERVAL);
 

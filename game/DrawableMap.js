@@ -12,10 +12,12 @@ class DrawableMap {
     this.backgroundColor = backgroundColor;
   }
 
-  draw(ctx) {
-    this.drawMap(ctx);
+  drawContent(ctx) {
     this.drawableObjects.forEach((d) => {
-      d.draw(ctx);
+      if(d.shouldRedraw()) {
+        console.log('redrawing...')
+        d.draw(ctx);
+      }
     });
   }
 
