@@ -1,21 +1,18 @@
 // Initial file for the game code
 $(document).ready(() => {
 
-  const GAME_LOOP_INTERVAL = 200;
   const ESC_BUTTON_KEY_CODE = 27;
 
-  let gameLoop = function () {
-    console.log('Tick...');
-  }
+  let game = new Game(GAME_LOOP_INTERVAL);
 
   // Starting the game...
   console.log('Starting Project Adventure...');
-  let interval = setInterval(gameLoop, GAME_LOOP_INTERVAL);
+  game.start()
 
   // Stopping the game when pressing escape
   $(document).keyup((e) => {
     if(e.keyCode === ESC_BUTTON_KEY_CODE) {
-      clearInterval(interval);
+      game.stop();
       alert('Game stopped!');
     }
   });
