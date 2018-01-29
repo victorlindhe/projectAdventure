@@ -7,14 +7,13 @@ $(document).ready(() => {
 
   // Starting the game...
   console.log('Starting Project Adventure...');
-  game.start()
+  game.start();
 
   // Stopping the game when pressing escape
   $(document).keyup((e) => {
-    if(e.keyCode === ESC_BUTTON_KEY_CODE) {
-      game.stop();
-      alert('Game stopped!');
-    }
+    game.addTask(function () {
+      console.log(e.keyCode);   
+    });
   });
 
 });
