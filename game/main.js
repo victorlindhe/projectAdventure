@@ -2,13 +2,20 @@
 $(document).ready(() => {
 
   const ESC_BUTTON_KEY_CODE = 27;
+  const ARROW_LEFT_KEY_CODE = 37;
+  const ARROW_UP_KEY_CODE = 38;
+  const ARROW_RIGHT_KEY_CODE = 39;
+  const ARROW_DOWN_KEY_CODE = 40;
 
   // Populating the map with stuff
+  let playerObject = new MoveableObject(100, 100, 40, 40);
+
   let physicalObjects = [
     new PhysicalObject(0, 0, 100, 100),
     new PhysicalObject(0, 300, 100, 100),
     new PhysicalObject(200, 300, 100, 100),
-    new PhysicalObject(600, 400, 100, 100)
+    new PhysicalObject(600, 400, 100, 100),
+    playerObject
   ];
 
   let map = new PhysicalMap(700, 500, physicalObjects);
@@ -21,8 +28,6 @@ $(document).ready(() => {
   drawableMap.drawMap(ctx);
   drawableMap.drawContent(ctx);
 
-  drawableMap.drawContent(ctx);
-
   let game = new Game(GAME_LOOP_INTERVAL);
 
   // Starting the game...
@@ -30,10 +35,36 @@ $(document).ready(() => {
   game.start();
 
   // Stopping the game when pressing escape
-  $(document).keyup((e) => {
-    game.addTask(function () {
-      console.log(e.keyCode);   
-    });
+  $(document).keydown((e) => {
+    let keyCode = e.keyCode;
+
+    switch(keyCode) {
+      case ARROW_DOWN_KEY_CODE: 
+        game.addTask(function () { 
+          playerObject.move({ y: WALKING_SPEED });
+          drawableMap.drawContent(ctx); 
+        });
+        break;
+      case ARROW_UP_KEY_CODE: 
+        game.addTask(function () { 
+          playerObject.move({ y: -WALKING_SPEED });
+          drawableMap.drawContent(ctx);
+        });
+        break;
+      case ARROW_LEFT_KEY_CODE: 
+        game.addTask(function () { 
+          playerObject.move({ x: -WALKING_SPEED });
+          drawableMap.drawContent(ctx);
+        });
+        break;
+      case ARROW_RIGHT_KEY_CODE:
+        game.addTask(function () { 
+          playerObject.move({ x: WALKING_SPEED });
+          drawableMap.drawContent(ctx);
+        });
+        break;
+    }
+
   });
 
 });
