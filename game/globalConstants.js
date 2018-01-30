@@ -12,4 +12,4 @@ const COLOR_GRASS_GREEN = "#339933";
 
 
 // Physics
-const WALKING_SPEED = 4;
+const WALKING_SPEED = 7;

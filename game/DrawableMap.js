@@ -16,6 +16,12 @@ class DrawableMap {
     this.drawableObjects.forEach((d) => {
       if(d.shouldRedraw()) {
         console.log('redrawing...')
+
+        // Erasing the current moveable to avoid it painted out like a trace
+        ctx.fillStyle = this.backgroundColor;
+        ctx.fillRect(d.drawnState.x, d.drawnState.y,
+                     d.drawnState.width, d.drawnState.height);
+
         d.draw(ctx);
       }
     });
