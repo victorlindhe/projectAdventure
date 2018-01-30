@@ -24,8 +24,8 @@ $(document).ready(() => {
   let $canvas = document.getElementById("canvas");
   let ctx = $canvas.getContext("2d");
 
-  let drawableMap = new DrawableMap(map);
-  let gameEngine = new GameEngine(drawableMap, ctx);
+  let viewPort = new ViewPort(map, ctx, 0, 0, 700, 500);
+  let gameEngine = new GameEngine(viewPort, ctx);
   let game = new Game(GAME_LOOP_INTERVAL, gameEngine);
 
   // Starting the game...

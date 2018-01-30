@@ -1,14 +1,13 @@
 class GameEngine {
-  constructor(drawableMap, ctx) {
-    this.drawableMap = drawableMap;
-    this.ctx = ctx;
+  constructor(viewPort) {
+    this.viewPort = viewPort;
   }
 
   setup() {
-    this.drawableMap.drawMap(this.ctx);
+    this.viewPort.draw();
   }
 
   tick() {
-    this.drawableMap.drawContent(this.ctx);
+    this.viewPort.draw();
   }
 }
