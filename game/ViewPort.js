@@ -25,10 +25,10 @@ class ViewPort {
   }
 
   get x() {
-    return this.centredObject.x - (this.width / 2);
+    return this.centredObject.centerX - (this.width / 2);
   }
 
   get y() {
-    return this.centredObject.y - (this.height / 2);
+    return this.centredObject.centerY - (this.height / 2);
   }
 }

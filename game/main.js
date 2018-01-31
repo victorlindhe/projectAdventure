@@ -8,7 +8,7 @@ $(document).ready(() => {
   const ARROW_DOWN_KEY_CODE = 40;
 
   // Populating the map with stuff
-  let playerObject = new MoveableObject(100, 100, 40, 40);
+  let playerObject = new MoveableObject(315, 215, 70, 70);
 
   let physicalObjects = [
     new PhysicalObject(0, 0, 100, 100),
