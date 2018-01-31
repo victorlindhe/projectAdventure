@@ -39,16 +39,24 @@ $(document).ready(() => {
 
     switch(keyCode) {
       case ARROW_DOWN_KEY_CODE: 
-        game.addTask(() => { playerObject.move({ y: WALKING_SPEED }); });
+        game.addTask(() => {
+          playerObject.move(physicsEngine.getMoveableDistance(playerObject, { y: WALKING_SPEED })); 
+        });
         break;
       case ARROW_UP_KEY_CODE: 
-        game.addTask(() => { playerObject.move({ y: -WALKING_SPEED }); });
+        game.addTask(() => { 
+          playerObject.move(physicsEngine.getMoveableDistance(playerObject, { y: -WALKING_SPEED })); 
+        });
         break;
       case ARROW_LEFT_KEY_CODE: 
-        game.addTask(() => { playerObject.move({ x: -WALKING_SPEED }); });
+        game.addTask(() => {
+          playerObject.move(physicsEngine.getMoveableDistance(playerObject, { x: -WALKING_SPEED })); 
+        });
         break;
       case ARROW_RIGHT_KEY_CODE:
-        game.addTask(() => { playerObject.move({ x: WALKING_SPEED }); });
+        game.addTask(() => { 
+          playerObject.move(physicsEngine.getMoveableDistance(playerObject, { x: WALKING_SPEED }));
+        });
         break;
     }
 
