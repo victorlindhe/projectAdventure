@@ -14,18 +14,19 @@ $(document).ready(() => {
     new PhysicalObject(0, 0, 100, 100),
     new PhysicalObject(0, 300, 100, 100),
     new PhysicalObject(200, 300, 100, 100),
-    new PhysicalObject(600, 400, 100, 100),
-    playerObject
+    new PhysicalObject(600, 400, 100, 100)
   ];
 
-  let map = new PhysicalMap(700, 500, physicalObjects);
+  let map = new PhysicalMap(700, 500, physicalObjects, playerObject);
 
   // Testing out drawing the map
   let $canvas = document.getElementById("canvas");
   let ctx = $canvas.getContext("2d");
 
-  let viewPort = new ViewPort(map, ctx, 700, 500, playerObject);
-  let gameEngine = new GameEngine(viewPort, ctx);
+  let viewPort = new ViewPort(map, ctx, 700, 500);
+  let physicsEngine = new PhysicsEngine(map);
+
+  let gameEngine = new GameEngine(viewPort, physicsEngine, ctx);
   let game = new Game(GAME_LOOP_INTERVAL, gameEngine);
 
   // Starting the game...

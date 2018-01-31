@@ -2,12 +2,11 @@
 // Responsible for drawing what is visible to the player
 
 class ViewPort {
-  constructor(physicalMap, ctx, width, height, centredObject) {
+  constructor(physicalMap, ctx, width, height) {
     this.physicalMap = physicalMap;
     this.ctx = ctx;
     this.width = width;
     this.height = height;
-    this.centredObject = centredObject;
   }
 
   draw() {
@@ -22,13 +21,19 @@ class ViewPort {
       this.ctx.fillStyle = COLOR_BLACK;
       this.ctx.fillRect(o.x - this.x, o.y - this.y, o.width, o.height);
     });
+
+    this.ctx.fillStyle = COLOR_RED;
+    this.ctx.fillRect(this.physicalMap.playerObject.x - this.x, 
+                      this.physicalMap.playerObject.y - this.y, 
+                      this.physicalMap.playerObject.width, 
+                      this.physicalMap.playerObject.height);
   }
 
   get x() {
-    return this.centredObject.centerX - (this.width / 2);
+    return this.physicalMap.playerObject.centerX - (this.width / 2);
   }
 
   get y() {
-    return this.centredObject.centerY - (this.height / 2);
+    return this.physicalMap.playerObject.centerY - (this.height / 2);
   }
 }
