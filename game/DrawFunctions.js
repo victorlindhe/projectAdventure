@@ -16,4 +16,20 @@ class DrawFunctions {
       ctx.fillRect(o.x - x, o.y - y, o.width, o.height);
     }
   }
+
+  static getTree(o) {
+    return (ctx, x, y) => {
+      var img = new Image();
+      img.src = "graphics/tree.png";
+      ctx.drawImage(img, o.x - x, o.y - y);
+    } 
+  }
+
+  static getHero(o) {
+    return (ctx, x, y) => {
+      var img = new Image();
+      img.src = "graphics/hero.png";
+      ctx.drawImage(img, o.x - x, o.y - y);
+    } 
+  }
 }

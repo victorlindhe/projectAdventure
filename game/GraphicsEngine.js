@@ -20,9 +20,11 @@ class GraphicsEngine {
   getDrawFunction(o) {
     switch(o.constructor.name) {
       case Tree.name:
-        return DrawFunctions.getBlackSquare(o);
+        return DrawFunctions.getTree(o);
       case MoveableObject.name:
         return DrawFunctions.getRedSquare(o);
+      case Hero.name:
+        return DrawFunctions.getHero(o);
       case PhysicalObject.name:
         return DrawFunctions.getBlackSquare(o);
       default:
