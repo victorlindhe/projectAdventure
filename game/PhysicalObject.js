@@ -10,18 +10,12 @@ class PhysicalObject {
   }
 
   collidesWith({ x, y, xFull, yFull }) {
-    
+
     // If outside any of the boundaries
     if(xFull <= this.x || yFull <= this.y) return false;
     if(x >= this.xFull || y >= this.yFull) return false;
 
     return true;
-  }
-
-  getDistanceTo(otherObject) {
-    if(otherObject.xFull < this.x || yFull < this.y) {
-
-    }
   }
 
   get centerX() {
@@ -39,4 +33,5 @@ class PhysicalObject {
   get yFull() {
     return this.y + this.height;
   }
+
 }

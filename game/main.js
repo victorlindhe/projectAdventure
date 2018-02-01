@@ -12,7 +12,7 @@ $(document).ready(() => {
 
   let physicalObjects = [
     new PhysicalObject(0, 0, 100, 100),
-    new PhysicalObject(0, 300, 100, 100),
+    new Tree(0, 300),
     new PhysicalObject(200, 300, 100, 100),
     new PhysicalObject(600, 400, 100, 100)
   ];
@@ -23,7 +23,8 @@ $(document).ready(() => {
   let $canvas = document.getElementById("canvas");
   let ctx = $canvas.getContext("2d");
 
-  let viewPort = new ViewPort(map, ctx, 700, 500);
+  let graphicsEngine = new GraphicsEngine(ctx);
+  let viewPort = new ViewPort(map, graphicsEngine, 700, 500);
   let physicsEngine = new PhysicsEngine(map);
 
   let gameEngine = new GameEngine(viewPort, physicsEngine, ctx);
