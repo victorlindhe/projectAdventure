@@ -9,7 +9,7 @@ class GraphicsEngine {
 
   drawBackground(x, y, width, height, backgroundColor = COLOR_GRASS_GREEN) {
     this.ctx.fillStyle = backgroundColor;
-    this.ctx.fillRect(x, y, width, height);
+    this.ctx.fillRect(x, y, 2*width, 2*height);
   }
 
   drawObject(o, x, y) {

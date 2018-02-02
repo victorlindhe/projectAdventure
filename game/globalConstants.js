@@ -11,5 +11,5 @@ const COLOR_BLUE = "#0000FF";
 const COLOR_GRASS_GREEN = "#339933";
 
 // Physics
-const WALKING_SPEED = 7;
+const WALKING_SPEED = 14;
 

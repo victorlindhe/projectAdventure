@@ -17,14 +17,15 @@ $(document).ready(() => {
     new Tree(600, 400, 100, 100)
   ];
 
-  let map = new PhysicalMap(700, 500, physicalObjects, playerObject);
+  let map = new PhysicalMap(600, 350, physicalObjects, playerObject);
 
   // Testing out drawing the map
   let $canvas = document.getElementById("canvas");
   let ctx = $canvas.getContext("2d");
+  ctx.scale(2,2);
 
   let graphicsEngine = new GraphicsEngine(ctx);
-  let viewPort = new ViewPort(map, graphicsEngine, 700, 500);
+  let viewPort = new ViewPort(map, graphicsEngine, 600, 350);
   let physicsEngine = new PhysicsEngine(map);
 
   let gameEngine = new GameEngine(viewPort, physicsEngine, ctx);
