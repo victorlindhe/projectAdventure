@@ -21,6 +21,8 @@ class GraphicsEngine {
     switch(o.constructor.name) {
       case Tree.name:
         return DrawFunctions.getTree(o);
+      case Pizza.name:
+        return DrawFunctions.getPizza(o);
       case MoveableObject.name:
         return DrawFunctions.getRedSquare(o);
       case Hero.name:

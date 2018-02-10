@@ -20,22 +20,11 @@ class PhysicsEngine {
 
     // If there is a colliding object, we adjust the distance we can move towards it
     if(collisionObject !== undefined) {
-      let response = {};
+      let response = collisionObject.handleCollision(moveableObject, { x, y });
 
-      if(x) {
-        if(moveableObject.xFull < collisionObject.x) {
-          response.x = collisionObject.x - moveableObject.xFull;
-        } else if (moveableObject.x > collisionObject.xFull) {
-          response.x = -(moveableObject.x - collisionObject.xFull);
-        }
-      }
-
-      if(y) {
-        if(moveableObject.yFull < collisionObject.y) {
-          response.y = collisionObject.y - moveableObject.yFull;
-        } else if (moveableObject.y > collisionObject.yFull) {
-          response.y = -(moveableObject.y - collisionObject.yFull);
-        }
+      // If the object is to be deleted, remove it from list of objects on the map
+      if(response.del && response.del === true) {
+        this.physicalMap.objects = this.physicalMap.objects.filter((o) => { return o !== collisionObject });
       }
 
       return response;

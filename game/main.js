@@ -11,10 +11,11 @@ $(document).ready(() => {
   let playerObject = new Hero(315, 215);
 
   let physicalObjects = [
-    new Tree(0, 0, 100, 100),
+    new Tree(0, 0),
     new Tree(0, 300),
-    new Tree(200, 300, 100, 100),
-    new Tree(600, 400, 100, 100)
+    new Tree(200, 300),
+    new Tree(600, 400),
+    new Pizza(200, 200)
   ];
 
   let map = new PhysicalMap(600, 350, physicalObjects, playerObject);

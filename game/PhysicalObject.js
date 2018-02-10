@@ -7,6 +7,7 @@ class PhysicalObject {
     this.y = y; 
     this.width = width;
     this.height = height;
+    this.drawable = true;
   }
 
   collidesWith({ x, y, xFull, yFull }) {
@@ -18,6 +19,28 @@ class PhysicalObject {
     return true;
   }
 
+  handleCollision(moveableObject, { x, y }) {
+    let response = {};
+
+    if(x) {
+      if(moveableObject.xFull < this.x) {
+        response.x = this.x - moveableObject.xFull;
+      } else if (moveableObject.x > this.xFull) {
+        response.x = -(moveableObject.x - this.xFull);
+      }
+    }
+
+    if(y) {
+      if(moveableObject.yFull < this.y) {
+        response.y = this.y - moveableObject.yFull;
+      } else if (moveableObject.y > this.yFull) {
+        response.y = -(moveableObject.y - this.yFull);
+      }
+    }
+
+    return response;
+  }
+  
   get centerX() {
     return this.x + (this.width / 2);
   }

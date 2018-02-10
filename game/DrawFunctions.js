@@ -25,6 +25,15 @@ class DrawFunctions {
     } 
   }
 
+  static getPizza(o) {
+    return (ctx, x, y) => {
+      var img = new Image();
+      img.src = "graphics/pizza.png";
+      ctx.drawImage(img, o.x - x, o.y - y);
+    } 
+  }
+
+
   static getHero(o) {
     return (ctx, x, y) => {
       var img = new Image();
