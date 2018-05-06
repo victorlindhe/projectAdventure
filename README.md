@@ -5,7 +5,7 @@ A simple JS game that runs in the browser. Done as a hobby project by me (Victor
 - Walk around in a small, fixed world
 - Collect pizza slices
 
-![Game screenshot](https://raw.githubusercontent.com/victorlindhe/projectAdventure/master/projectAdventureScreenshot.png)
+![Game screenshot](https://github.com/victorlindhe/projectAdventure/raw/master/projectAdventureScreenshot.png)
 
 ### Planned game play features
 - Exploring a new, big world every time you play
